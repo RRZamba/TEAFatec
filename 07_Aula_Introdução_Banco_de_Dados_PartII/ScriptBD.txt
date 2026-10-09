@@ -1,3 +1,17 @@
+-- Criando DB
+CREATE DATABASE cadastrovirtual;
+
+-- Criando a tabela
+CREATE TABLE cadfun(
+	CODFUN INT AUTO_INCREMENT,
+    NOME VARCHAR(45),
+    DEPTO CHAR(2),
+    FUNCAO VARCHAR(20),
+    SALARIO DECIMAL(10,2),
+    PRIMARY KEY(CODFUN)    
+);
+
+
 -- ============================================================================
 -- BASE DE DADOS AMPLIADA - TABLE CADFUN (100 REGISTROS)
 -- ============================================================================
@@ -102,3 +116,57 @@ INSERT INTO cadfun (CODFUN, NOME, DEPTO, FUNCAO, SALARIO) VALUES (97, 'ORLANDO T
 INSERT INTO cadfun (CODFUN, NOME, DEPTO, FUNCAO, SALARIO) VALUES (98, 'PRISCILA MENDES', '4', 'ASSISTENTE', 1390.00);
 INSERT INTO cadfun (CODFUN, NOME, DEPTO, FUNCAO, SALARIO) VALUES (99, 'RENAN MARTINS', '5', 'VENDEDOR', 1530.00);
 INSERT INTO cadfun (CODFUN, NOME, DEPTO, FUNCAO, SALARIO) VALUES (100, 'SABRINA GOMES', '6', 'GERENTE', 4900.00);
+
+
+-- !!!!!!!!   Tipos de Consulta !!!!!!!!!!!
+
+-- Selecionando todos os registros
+SELECT * FROM cadfun; 
+
+-- Selecionando alguns registros
+SELECT NOME, DEPTO, FUNCAO FROM cadfun;
+
+-- Selecionando por departamento
+SELECT * FROM cadfun 
+WHERE DEPTO = 2;
+
+-- Selecionando e ordenando
+SELECT * FROM cadfun
+WHERE DEPTO = 1
+ORDER BY NOME;
+
+-- Selecionando e ordenando de forma decrescente
+SELECT * FROM cadfun
+ORDER BY DEPTO DESC;
+
+-- Atualizando um registro
+UPDATE cadfun
+SET SALARIO = 30000.00
+WHERE CODFUN = 1;
+
+SELECT * FROM cadfun 
+WHERE CODFUN = 1;
+
+-- Alterando a tabela
+ALTER TABLE cadfun
+ADD admissao DATE;
+
+-- Alterando um registro (campo admissao)
+UPDATE cadfun
+SET admissao = '2019-12-02'
+WHERE CODFUN = 1;
+	-- teste
+	SELECT * FROM cadfun 
+	WHERE CODFUN = 1;
+
+
+
+
+
+
+
+
+
+
+
+
